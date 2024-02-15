@@ -1,6 +1,7 @@
 .weatherResults
 {
-  text-align: center;
+text-align: center;
+font-size: 12px;
 }
 
 .main {
@@ -9,4 +10,7 @@
 
 .searchBar {
   text-align: center;
+  margin: 15px;
+  padding: 10px;
+  text-decoration: darkblue;
 }
