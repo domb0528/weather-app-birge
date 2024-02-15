@@ -14,7 +14,7 @@ const Search = () => {
       setLoading(true);
       setError(null);
 
-      const locationResponse = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${'DgPDqeQZ4RE01jOnKCyMHhlyEB8hGaSJ'}&q=${query}&details=true`);
+      const locationResponse = await fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${'DgPDqeQZ4RE01jOnKCyMHhlyEB8hGaSJ'}&q=${query}&details=true`);
       if (!locationResponse.ok) {
         throw new Error('Failed to fetch location data');
       }
@@ -24,7 +24,7 @@ const Search = () => {
       }
       const locationKey = locationData[0].Key;
 
-      const forecastResponse = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${'DgPDqeQZ4RE01jOnKCyMHhlyEB8hGaSJ'}`);
+      const forecastResponse = await fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${'DgPDqeQZ4RE01jOnKCyMHhlyEB8hGaSJ'}`);
       if (!forecastResponse.ok) {
         throw new Error('Failed to fetch forecast data');
       }
