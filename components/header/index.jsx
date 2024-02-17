@@ -9,7 +9,7 @@ export default function Header(props) {
       {props.isLoggedIn ? (
         <>
           <p>
-            <Link href="/">Home</Link>
+            <Link href="/">Weather Friend</Link>
           </p>
           <div className={styles.container}>
             <p>Welcome, {props.username}!</p>
@@ -21,7 +21,7 @@ export default function Header(props) {
       ) : (
         <>
           <p>
-            <Link href="/">Home</Link>
+            <Link href="/">Weather Friend</Link>
           </p>
           <p>
             <Link href="/login">Login</Link>

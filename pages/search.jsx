@@ -64,7 +64,7 @@ const Search = () => {
       {error && <p>Error: {error}</p>}
       {dailyForecasts.length > 0 && (
         <div className={styles.weatherResults}>
-          <h2>5-Day Daily Forecasts</h2>
+          <h2> {query ? `5-Day Daily Forecasts for ${query}` : ' 5-Day Daily Forecast'}</h2>
           {dailyForecasts.map((forecast, index) => (
             <div key={index}>
             <p>Date: {forecast.Date}</p>

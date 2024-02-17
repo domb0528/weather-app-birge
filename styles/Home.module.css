@@ -1,7 +1,13 @@
 .weatherResults
 {
 text-align: center;
-font-size: 12px;
+background-color:aliceblue;
+margin: 20px;
+padding: 1px;
+font-weight: bolder;
+font-size: 18px;
+justify-content:space-between;
+display: flex;
 }
 
 .main {
@@ -12,5 +18,5 @@ font-size: 12px;
   text-align: center;
   margin: 15px;
   padding: 10px;
-  text-decoration: darkblue;
+  text-decoration: blue;
 }
