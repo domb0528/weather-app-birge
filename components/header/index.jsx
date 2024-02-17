@@ -23,8 +23,13 @@ export default function Header(props) {
           <p>
             <Link href="/">Weather Friend</Link>
           </p>
+
           <p>
             <Link href="/login">Login</Link>
+          </p>
+          
+          <p>
+            <Link href="/search">Search</Link>
           </p>
         </>
       )}

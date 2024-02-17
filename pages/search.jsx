@@ -9,6 +9,8 @@ const Search = () => {
   const [error, setError] = useState(null);
   const [query, setQuery] = useState('');
 
+  // Searching and using a fetch with APIkey to use Accuweather API
+
   const handleSearch = async () => {
     try {
       setLoading(true);
@@ -22,12 +24,18 @@ const Search = () => {
       if (locationData.length === 0) {
         throw new Error('No matching location found');
       }
+
+      // Using fetch with location key to allow the api to render specific location data
+
       const locationKey = locationData[0].Key;
 
       const forecastResponse = await fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${'DgPDqeQZ4RE01jOnKCyMHhlyEB8hGaSJ'}`);
       if (!forecastResponse.ok) {
         throw new Error('Failed to fetch forecast data');
       }
+
+      // This will get the Daily Forecast data from the API
+
       const forecastData = await forecastResponse.json();
       setDailyForecasts(forecastData.DailyForecasts);
       setLocationKey(locationKey);
@@ -49,6 +57,12 @@ const Search = () => {
   return (
     <div>
         <Header></Header>
+        <main className={styles.main}>
+        <h1 className={styles.title}>
+          Welcome to the Weather Friend Search Page! Please enter your city's name and your 5 day weather forecast will show below! 
+        </h1>
+
+
         <div className={styles.searchBar}>
       <input
         type="text" 
@@ -63,6 +77,7 @@ const Search = () => {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {dailyForecasts.length > 0 && (
+        // the h2 tag will now show the query result instead of just the 5 day forecast so the user can see which city they entered
         <div className={styles.weatherResults}>
           <h2> {query ? `5-Day Daily Forecasts for ${query}` : ' 5-Day Daily Forecast'}</h2>
           {dailyForecasts.map((forecast, index) => (
@@ -75,6 +90,7 @@ const Search = () => {
           ))}
         </div>
       )}
+      </main>
     </div>
   );
 };
