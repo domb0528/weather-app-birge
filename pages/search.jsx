@@ -8,8 +8,18 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [query, setQuery] = useState('');
+  const [favorites, setFavorites] = useState([]);
+  
 
   // Searching and using a fetch with APIkey to use Accuweather API
+
+  const addToFavorites = () => {
+    const favorite = {
+      city: query,
+      forecasts: dailyForecasts
+    };
+    setFavorites([...favorites, favorite]);
+  };
 
   const handleSearch = async () => {
     try {
@@ -79,7 +89,8 @@ const Search = () => {
       {dailyForecasts.length > 0 && (
         // the h2 tag will now show the query result instead of just the 5 day forecast so the user can see which city they entered
         <div className={styles.weatherResults}>
-          <h2> {query ? `5-Day Daily Forecasts for ${query}` : ' 5-Day Daily Forecast'}</h2>
+          <h2> {query ? `5-Day Daily Forecasts for ${query}` : ' 5-Day Daily Forecast'} <button onClick={addToFavorites}>Add to Favorites</button>
+          </h2>
           {dailyForecasts.map((forecast, index) => (
             <div key={index}>
             <p>Date: {forecast.Date}</p>

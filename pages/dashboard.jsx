@@ -44,6 +44,11 @@ export default function Dashboard(props) {
             <h2>Search &rarr;</h2>
             <p>Search for your 5 day weather forcast</p>
           </Link>
+
+          <Link href="/favorites" className={styles.card}>
+            <h2>Favorites &rarr;</h2>
+            <p>Here are your Favorites</p>
+          </Link>
           <div
             onClick={logout}
             style={{ cursor: "pointer" }}
