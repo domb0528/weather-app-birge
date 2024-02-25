@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { withIronSessionSsr } from "iron-session/next";
 import sessionOptions from "../config/session";
 import Header from "../components/header";
+import Search from "./search";
 
 export const getServerSideProps = withIronSessionSsr(
     async function getServerSideProps({ req }) {
@@ -48,16 +49,15 @@ export const getServerSideProps = withIronSessionSsr(
         console.log(err);
       }
     }
-    return (
-      <div className={styles.container}>
-  
-        <Header isLoggedIn={props.isLoggedIn} username={props?.user?.username} />
-  
-        <main className={styles.main}>
-          <h1 className={styles.title}>
-            Welcome to the Weather Friend Favoritres Page!
-          </h1>
+    
+      return (
+        <div className={styles.container}>
+          <Header isLoggedIn={props.isLoggedIn} username={props?.user?.username} />
+          <main className={styles.main}>
+            <h1 className={styles.title}>
+              Welcome to the Weather Friend Favorites Page!
+            </h1>
           </main>
-          </div>
-           );
-        }
+        </div>
+      );
+    }

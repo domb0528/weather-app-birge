@@ -13,6 +13,7 @@ export default function Header(props) {
           </p>
           <div className={styles.container}>
             <p>Welcome, {props.username}!</p>
+            <p><Link href="/search">Search</Link></p>
             <p onClick={logout} style={{ cursor: "pointer" }}>
               Logout
             </p>
@@ -26,10 +27,6 @@ export default function Header(props) {
 
           <p>
             <Link href="/login">Login</Link>
-          </p>
-          
-          <p>
-            <Link href="/search">Search</Link>
           </p>
         </>
       )}

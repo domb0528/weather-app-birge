@@ -66,11 +66,6 @@ export default function Home(props) {
                 <p>Visit the login page.</p>
               </Link>
 
-              <Link href="/search" className={styles.card}>
-            <h2>Search &rarr;</h2>
-            <p>Search for your 5 day weather forcast</p>
-              </Link>
-              
             </>
           )}
         </div>
